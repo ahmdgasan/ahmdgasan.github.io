@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memories</title>
+  <link rel="stylesheet" href="stylememo.css">
+</head>
+<body>
+
+    <a href="../index.html" class="back-link">← Go Back</a>
+
+  <div class="music-player">
+    <audio id="bg-music" loop>
+      <source src="Habanera (From “Carmen”, WD. 31) - Georges Bizet.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn">🔊 Play Music</button>
+  </div>
+
+  <header>
+    <h1>aowkoawkoakwk</h1>
+  </header>
+
+  <div class="gallery-container">
+  <section class="gallery-grid">
+    <img src="Screenshot_2025-05-09-19-17-37-643_com.whatsapp.jpg" alt="Screenshot_2025-05-09-19-17-37-643_com">
+    <img src="Screenshot_2025-06-06-21-20-17-168_com.instagram.android.jpg" alt="Screenshot_2025-06-06-21-20-17-168_com">
+    <img src="Screenshot_2025-06-06-21-26-05-570_com.instagram.android.jpg" alt="Screenshot_2025-06-06-21-26-05-570_com">
+    <img src="Screenshot_2025-06-06-21-26-13-465_com.instagram.android.jpg" alt="Screenshot_2025-06-06-21-26-13-465_com">
+    <img src="Screenshot_2025-06-06-21-26-19-829_com.instagram.android.jpg" alt="Screenshot_2025-06-06-21-26-19-829_com">
+    <img src="Screenshot_2025-06-09-22-59-05-411_com.whatsapp.jpg" alt="Screenshot_2025-06-09-22-59-05-411_com">
+    <img src="Screenshot_2025-08-03-18-16-13-431_com.miui.mediaviewer-edit.jpg" alt="Screenshot_2025-08-03-18-16-13-431_com">
+    <img src="1.jpg" alt="1">
+    <img src="2.jpg" alt="2">
+    <img src="3.jpg" alt="3">
+    <img src="4.jpg" alt="4">
+    <img src="5.jpg" alt="5">
+    <img src="6.jpg" alt="6">
+    <img src="7.jpg" alt="7">
+    <img src="8.jpg" alt="8">
+    <img src="9.jpg" alt="9">
+    <img src="10.jpg" alt="10">
+    <img src="11.jpg" alt="11">
+    <img src="12.jpg" alt="12">
+    <img src="13.jpg" alt="13">
+    <img src="14.jpg" alt="14">
+    <img src="15.jpg" alt="15">
+    <img src="16.jpg" alt="16">
+    <img src="17.jpg" alt="17">
+    <img src="18.jpg" alt="18">
+    <img src="19.jpg" alt="19">
+    <img src="20.jpg" alt="20">
+    <img src="21.jpg" alt="21">
+    <img src="22.jpg" alt="22">
+    <img src="23.jpg" alt="23">
+    <img src="24.jpg" alt="24">
+    <img src="25.jpg" alt="25">
+    <img src="26.jpg" alt="26">
+    <img src="27.jpg" alt="27">
+    <img src="28.jpg" alt="28">
+    <img src="29.jpg" alt="29">
+    <img src="30.jpg" alt="30">
+    <img src="31.jpg" alt="31">
+    <img src="32.jpg" alt="32">
+    <img src="33.jpg" alt="33">
+    <img src="34.jpg" alt="34">
+    <img src="35.jpg" alt="35">
+    <img src="37.jpg" alt="37">
+    <img src="38.jpg" alt="38">
+    <img src="39.jpg" alt="39">
+    <img src="40.jpg" alt="40">
+    <img src="41.jpg" alt="41">
+    <img src="42.jpg" alt="42">
+    <img src="43.jpg" alt="43">
+    <img src="44.jpg" alt="44">
+    <img src="45.jpg" alt="45">
+    <img src="46.jpg" alt="46">
+    <img src="47.jpg" alt="47">
+    <img src="48.jpg" alt="48">
+    <img src="49.jpg" alt="49">
+    <img src="50.jpg" alt="50">
+    <img src="51.jpg" alt="51">
+    <img src="52.jpg" alt="52">
+    <img src="53.jpg" alt="53">
+    <img src="54.jpg" alt="54">
+    <img src="55.jpg" alt="55">
+    <img src="56.jpg" alt="56">
+    <img src="57.jpg" alt="57">
+    <img src="58.jpg" alt="58">
+    <img src="59.jpg" alt="59">
+    <img src="60.jpg" alt="60">
+    <img src="61.jpeg" alt="61">
+    <img src="62.jpg" alt="62">
+    <img src="63.jpg" alt="63">
+    <img src="64.jpg" alt="64">
+  </section>
+        </div>
+
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-img" id="modal-img">
+  </div>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    const playBtn = document.getElementById("music-btn");
+    let isPlaying = false;
+
+    playBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play();
+        playBtn.textContent = "⏸️ Pause Music";
+      } else {
+        audio.pause();
+        playBtn.textContent = "🔊 Play Music";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".gallery-grid img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  </script>
+
+</body>
+</html>
