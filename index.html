@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Ahmad Ghassan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .profile {
+      text-align: center;
+    }
+    .profile img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .description {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .email-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #007bff;
+      text-decoration: none;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      margin-top: 10px;
+    }
+    .music {
+      margin-top: 40px;
+    }
+    .social-icons {
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 15px;
+      font-size: 24px;
+      color: #555;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      padding-bottom: 20px;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="img-modal" class="img-modal" aria-hidden="true">
+  <div class="img-modal-content" role="dialog" aria-modal="true">
+    <button class="img-modal-close" id="imgModalClose" aria-label="Close">&times;</button>
+    <img id="imgModalImg" src="" alt="Full image view">
+  </div>
+</div>
+
+<script>
+  (function() {
+    const imgs = document.querySelectorAll('.photo-gallery-grid img');
+    const modal = document.getElementById('img-modal');
+    const modalImg = document.getElementById('imgModalImg');
+    const closeBtn = document.getElementById('imgModalClose');
+
+    imgs.forEach((img, idx) => {
+      img.style.cursor = 'zoom-in';
+      img.dataset.index = idx;
+      img.addEventListener('click', function (e) {
+        modalImg.src = this.src;
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  })();
+</script>
+
+
+    <div class="profile-container">
+        <img class="profile-pic" src="San.png" alt="Photo">
+        <div class="profile-text">
+          <div class="name">Ahmad Ghassan</div>
+        </div>
+      </div>
+      <hr>
+      <p class="description">
+        18 y.o Highschool Student 🧑‍🎓 based in Indonesia.
+      </p>
+
+      <div class="music-player">
+  <h5>Music</h5>
+  <audio controls>
+    <source src="Full Moon Full Life.mp3" type="audio/mpeg">
+  </audio>
+</div>
+      
+  <h2>Photo</h2>
+
+  <div class="photo-gallery-grid">
+    <img src="Bandung.jpeg" alt="Bandung">
+    <img src="Beach.jpeg" alt="Beach">
+    <img src="School.jpeg" alt="School">
+    <img src="Ship.jpeg" alt="Ship">
+    </div>
+
+  <div class="social-icons">
+    <a href="https://youtube.com/@apayabingung01" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="mailto:contactghassan05@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i> Menu
+</div>
+
+<div id="side-menu" class="side-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Memories/indexmemo.html">Album</a></li> 
+  </ul>
+</div>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("side-menu");
+    menu.classList.toggle("active");
+  }
+</script>
+
+
+  <footer>
+    © 2026 Ahmad Ghassan, all rights reserved.
+  </footer>
+
+</body>
+</html>
